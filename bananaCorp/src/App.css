@@ -1,0 +1,13 @@
+html, body{
+    margin: 0;
+    font-family:inter, sans-serif;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+}
