@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Header } from './Header'
 import { Aside } from './Aside'
+import { DarkModeComponent } from './DarkModeComponent'
 
 function App() {
   const [game, setGame] = useState({
@@ -15,12 +16,14 @@ function App() {
       { id: 5, name: "Zadanie 5", cost: 400, bananasToEarn: 1400, reputationToEarn: 12 },
     ]
   })
+  const [darkMode, setDarkMode] = useState(false);
   return (
     <>
-      <Header game={game} setGame={setGame}/>
+      <Header game={game} setGame={setGame} darkMode={darkMode} setDarkMode={setDarkMode}/>
       <main>
         <Aside game={game} setGame={setGame} /> 
       </main>
+
     </>
   )
 }
