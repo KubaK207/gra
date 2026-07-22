@@ -1,4 +1,5 @@
 import { DarkModeComponent } from "./DarkModeComponent";
+import bananas from './assets/banana.png';
 
 export function Header({game, setDarkMode, darkMode}) {
     const styleMode = {
@@ -6,14 +7,15 @@ export function Header({game, setDarkMode, darkMode}) {
         color: darkMode ? "#eeeeee" : "black"
     };
     return(
-        <>
         <header style={styleMode}>
 
-            <h4>Bananas {game.bananas}</h4>
-            <h4>Reputation {game.reputation}</h4>
+            <div className="bananasClass">
+                <img src={bananas} alt="kiść bananów"/>
+                <h4> {game.finance.bananas}</h4>
+            </div>
+            <h4>Reputation {game.company.reputation}</h4>
         
             <DarkModeComponent setDarkMode={setDarkMode} darkMode={darkMode}/>
         </header>
-        </>
     );
 }

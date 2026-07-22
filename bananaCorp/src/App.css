@@ -12,6 +12,7 @@ header{
     height: 100px;
     width: 100%;
 
+    position: relative;
     display: flex; 
     flex-direction: row;
     justify-content: space-between;
@@ -20,6 +21,8 @@ header{
 
 main{
     height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: row;
 }
 
 aside{
@@ -30,13 +33,82 @@ aside{
 }
 
 .modal{
-    height: 20vh;
-    width: 40vw;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 50vh;
+    width: 20vw;
+    background-color: white;
+    border: 1px solid black;
 
     position: absolute;
     left: 50%;
     top: 50%;
 
     transform: translate(-50%, -50%);
+}
+
+.modal button {
+    position: relative;
+
+    background-color: white;
+    border:  1px solid black;
+    margin-right: 2px;
+}
+
+.modal button:hover {
+    background-color: #b9b7b7;
+}   
+
+.bananasClass img {
+    position: relative;
+    height: 100%;
+    width: auto;
+    margin: 0;
+
+}
+
+.bananasClass {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    align-items: center;
+    font-size: 150%;
+}
+
+aside button {
+    position: relative;
+    background-color: rgb(88, 194, 255);
+
+    border: none;
+
+    height: 100px;
+    width: 100px;
+
+    left: 50%;
+    top: 2%;
+    transform: translateX(-50%);
+}
+
+aside button img{
+    height: 100%;
+    width: 100%;
+}
+
+aside button:hover {
+    opacity: 90%;
+}
+
+.modalOffer {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.modalContract {
+    position: relative;
+    
+    text-align: center;
+}
+
+.modalContract p {
+    height: 10px 0;
 }

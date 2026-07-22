@@ -1,0 +1,14 @@
+.activeTasks{
+    height: 100px;
+    width: 400px;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.activeTasks p {
+    margin: 0;
+    
+}
