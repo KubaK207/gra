@@ -26,14 +26,21 @@ export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksLi
                     startDate: Date.now()
                 }
             ]);
+
+            
         }else{
             alert("Masz zbyt mało bananów");
         }
     }
     function HandleTaskFunctionDecline(){
-        setOpen(false); 
-        
-        setGame(prev => ({...prev, firstTask: false, company: {...prev.company, reputation: prev.company.reputation - task.reputationToEarn}}));
+        setOpen(false);
+        if(game.company.reputation > 0){
+
+            setGame(prev => ({...prev, firstTask: false, company: {...prev.company, reputation: prev.company.reputation - task.reputationToEarn}}));
+        }
+        if(game.company.reputation <= 0){
+            setGame(prev => ({...prev, firstTask: false, company: {...prev.company, reputation: prev.company.reputation}}));
+        }
     }
     
     return(
