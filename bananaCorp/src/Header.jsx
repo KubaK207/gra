@@ -4,7 +4,8 @@ import bananas from './assets/banana.png';
 export function Header({game, setDarkMode, darkMode}) {
      const styleMode = {
         backgroundColor: darkMode ? "#252a34" : "white",
-        color: darkMode ? "#eeeeee" : "black"
+        color: darkMode ? "#eeeeee" : "black",
+        borderBottom: `1px solid ${darkMode ? "#eeeeee" : "#252a34"}`
     };
     return(
         <header style={styleMode}>

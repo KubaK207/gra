@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksList}) {
+export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksList, setDarkMode, darkMode}) {
     const [task] = useState(() => {
         const availableTasks = game.tasks.filter(task => task.minRep <= game.company.reputation);
 
@@ -9,7 +9,10 @@ export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksLi
             Math.floor(Math.random() * availableTasks.length)
         ];
     });
-        
+         const styleMode = {
+        backgroundColor: darkMode ? "#252a34" : "white",
+        color: darkMode ? "#eeeeee" : "black"
+    };
 
         function HandleTaskFunctionAccept(){
             if(game.finance.bananas >= task.investment){
@@ -44,7 +47,7 @@ export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksLi
     }
     
     return(
-        <div className="modal">
+        <div className="modal" style={styleMode}>
             <div className="modalOffer">
                 📄Oferta kontraktu
             </div>

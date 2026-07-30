@@ -11,7 +11,7 @@ export function Center({open, setOpen, game, setGame, activeTasksList, setActive
     return(
         <>
             <section className="center" style={styleMode}>{open && (
-                <Modal setOpen ={setOpen} game={game} setGame={setGame} activeTasksList={activeTasksList} setActiveTasksList={setActiveTasksList}/>
+                <Modal setOpen ={setOpen} game={game} setGame={setGame} activeTasksList={activeTasksList} setActiveTasksList={setActiveTasksList} setDarkMode={setDarkMode} darkMode={darkMode}/>
             )}
             </section>
 
