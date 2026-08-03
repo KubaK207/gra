@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Modal } from "./Modal";
 import palma from "./assets/palma.png";
 import { DarkModeComponent } from "./DarkModeComponent";
+import { Market } from "./Market";
+import sklep from "./assets/sklep.png";
 
-export function Aside({setOpen, darkMode, setDarkMode}) {
+export function Aside({setActivePanel, darkMode, setDarkMode}) {
 
     const styleMode = {
         backgroundColor: darkMode ? "#252a34" : "white",
@@ -14,7 +16,8 @@ export function Aside({setOpen, darkMode, setDarkMode}) {
     return(
         <>
             <aside style={styleMode}>
-                <button onClick={() => setOpen(true)}><img src= {palma}></img></button>
+                <button className="palma" onClick={() => setActivePanel("modal")}><img src = {palma}></img></button>
+                <button className="shop" onClick={() => setActivePanel("market")}><img src = {sklep}></img></button>
             </aside>
         
         </>

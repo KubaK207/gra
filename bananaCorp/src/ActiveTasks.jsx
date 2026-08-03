@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function ActiveTasks({ activeTasksList, setActiveTasksList, setGame }) {
+export function ActiveTasks({ activeTasksList, setActiveTasksList, dispatch }) {
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveTasksList(prev =>
@@ -12,11 +12,8 @@ export function ActiveTasks({ activeTasksList, setActiveTasksList, setGame }) {
                         };
 
                         if (newTask.timeLeft <= 0) {
-                            setGame(prevGame => ({
-                                ...prevGame,
-                                finance: {...prevGame.finance, bananas: prevGame.finance.bananas + (task.bananasToEarn / 2)},
-                                company: { ...prevGame.company, reputation: prevGame.company.reputation + (task.reputationToEarn / 2)},
-                            }));
+                            
+                            dispatch({type: "COMPLETE_TASK", payload: {bananas:task.bananasToEarn, reputation: task.reputationToEarn}});
                         }
 
                         return newTask;
@@ -26,7 +23,7 @@ export function ActiveTasks({ activeTasksList, setActiveTasksList, setGame }) {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, [setActiveTasksList, setGame]);
+    }, []);
 
     return (
         <div>

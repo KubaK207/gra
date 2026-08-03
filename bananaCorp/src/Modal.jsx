@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksList, setDarkMode, darkMode}) {
+export function Modal({setActivePanel, game, dispatch, activeTasksList, setActiveTasksList, setDarkMode, darkMode}) {
     const [task] = useState(() => {
         const availableTasks = game.tasks.filter(task => task.minRep <= game.company.reputation);
 
@@ -17,9 +17,9 @@ export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksLi
         function HandleTaskFunctionAccept(){
             if(game.finance.bananas >= task.investment){
 
-                setOpen(false); 
+                setActivePanel(null); 
                 
-                setGame(prev => ({...prev, firstTask: false, finance: {...prev.finance, bananas: prev.finance.bananas - task.investment}}));
+                dispatch({type: "REMOVE_BANANAS",payload: task.investment});
                 
                 setActiveTasksList(prev => [
                 ...prev,
@@ -36,14 +36,12 @@ export function Modal({setOpen, game, setGame, activeTasksList, setActiveTasksLi
         }
     }
     function HandleTaskFunctionDecline(){
-        setOpen(false);
-        if(game.company.reputation > 0){
-
-            setGame(prev => ({...prev, firstTask: false, company: {...prev.company, reputation: prev.company.reputation - task.reputationToEarn}}));
-        }
-        if(game.company.reputation <= 0){
-            setGame(prev => ({...prev, firstTask: false, company: {...prev.company, reputation: prev.company.reputation}}));
-        }
+        setActivePanel(null);
+        
+        dispatch({
+            type: "DECLINE_TASK",
+            payload: task.reputationToEarn
+        })
     }
     
     return(
